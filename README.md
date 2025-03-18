@@ -16,6 +16,14 @@ critical predictors of thyroid conditions. This research highlights the potentia
 paving the way for improved diagnostic outcomes and personalized treatment strategies, while also emphasizing the
 importance of transparency and interpretability in AI-assisted medical decision-making.
 
+## Explaination and Implementation
+
+The provided Python code introduces an implementation for generating SHAP (SHapley Additive exPlanations) explainability visualizations to interpret predictions made by Vision Transformer (ViT) models on thyroid ultrasound images. The key function, SHAPExplainability, takes as input the path to an image, its corresponding class label, a pre-trained model, and other parameters such as evaluation steps and batch size. It leverages the Hugging Face transformers library to load a feature extractor and a pre-trained ViT model. The function processes each image through the model to generate prediction probabilities, then computes SHAP values that quantify the contribution of each pixel in the image to the final classification decision. These SHAP values are subsequently visualized using shap.image_plot and saved as high-resolution images for further inspection.  
+
+The HandleSHAPExplainability function manages the execution of SHAP explainability across multiple models and classes. It iterates over a dataset directory containing subdirectories for each class, randomly selects a specified number of images per class, and applies the SHAPExplainability function. This ensures that insights are generated for a diverse set of samples. Notably, error handling is included to gracefully handle issues arising during image processing or model inference. 
+
+To implement this code, users need to provide the path to their dataset, which should be organized into subdirectories by class labels, and specify the paths to the pre-trained models they wish to analyze. This README file would benefit from additional context about the purpose of the code, installation instructions for required dependencies (e.g., torch, transformers, shap, Pillow), and detailed steps for running the script, including example inputs for the dataset path and model names. Furthermore, clarifications regarding hardware requirements (e.g., GPU support for faster inference) and links to relevant documentation for the libraries used would enhance usability. 
+
 ## Materials
 
 The study utilized two primary datasets:
